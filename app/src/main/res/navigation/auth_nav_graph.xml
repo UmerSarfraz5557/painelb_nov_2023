@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/auth_nav_graph"
+    app:startDestination="@id/login_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="br.com.painelb.ui.authentication.fragments.login.LoginFragment"
+        android:label="">
+        <action
+            android:id="@+id/navigate_to_registration_Fragment"
+            app:destination="@id/registration_fragment" />
+        <action
+            android:id="@+id/navigate_to_forgetPasswordFragment"
+            app:destination="@id/forget_password_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registration_fragment"
+        android:name="br.com.painelb.ui.authentication.fragments.registration.RegistrationFragment"
+        android:label="@string/title_fragment_registration">
+        <action
+            android:id="@+id/navigate_to_login_fragment"
+            app:destination="@id/login_fragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/login_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forget_password_fragment"
+        android:name="br.com.painelb.ui.authentication.fragments.forgetpassword.ForgetPasswordFragment"
+        android:label="@string/title_fragment_forget_password" />
+</navigation>

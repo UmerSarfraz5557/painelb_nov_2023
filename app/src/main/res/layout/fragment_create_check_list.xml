@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.checklist.create.CreateCheckListViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.fragments.checklist.create.fragment.CreateCheckListFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/next_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.main.fragments.checklist.create.fragment.VehicleFragment">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/carpet_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.carpet}"
+                    android:text="@string/carpet"
+                    android:onCheckedChanged="@{(buttonView, isChecked) -> viewModel.onCarpetCheckedChanged(isChecked)}"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline_start" />
+
+                <Spinner
+                    android:id="@+id/spinner_carpet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.spinnerCarpetVisible}"
+                    app:layout_constraintTop_toBottomOf="@+id/carpet_check_box"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/tire_iron_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.tireIron}"
+                    android:text="@string/tire_iron"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/carpet_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/triangue_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.triangue}"
+                    android:text="@string/triangue"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/tire_iron_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/monkey_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.monkey}"
+                    android:text="@string/monkey"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/triangue_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/front_lighting_system_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.frontLightingSystem}"
+                    android:text="@string/front_lighting_system"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/monkey_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/rear_lighting_system_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.reaLightingSystem}"
+                    android:text="@string/rear_lighting_system"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/front_lighting_system_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/sirene_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.sirene}"
+                    android:text="@string/sirene"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/rear_lighting_system_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/flashing_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.flashing}"
+                    android:text="@string/flashing"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/sirene_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/supply_card_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.supplyCard}"
+                    android:text="@string/supply_card"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/flashing_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/crlv_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.crlv}"
+                    android:text="@string/crlv"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/supply_card_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/glacier_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.glacier}"
+                    android:text="@string/glacier"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/crlv_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/etilometer_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.etilometer}"
+                    android:text="@string/etilometer"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/glacier_check_box" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/pneus_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.pneus}"
+                    android:text="@string/pneus"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/etilometer_check_box" />
+
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/stereo_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.stereo}"
+                    android:text="@string/stereo"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/pneus_check_box" />
+
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cones_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.cones}"
+                    android:text="@string/cones"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/stereo_check_box" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cones_enter_quantities_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:hint="@string/enter_quantities"
+                    app:layout_constraintStart_toEndOf="@+id/cones_check_box"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/cones_check_box">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/cones_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="@={viewModel.conesQuantities}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/super_cones_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.superCones}"
+                    android:text="@string/super_cones"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/cones_enter_quantities_text_input_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/super_cones_enter_quantities_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:hint="@string/enter_quantities"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/super_cones_check_box">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/super_cones_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="@={viewModel.supperConesQuantities}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/new_jersey_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.newJersey}"
+                    android:text="@string/new_jersey"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/super_cones_enter_quantities_text_input_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/new_jersey_enter_quantities_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:hint="@string/enter_quantities"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/new_jersey_check_box">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/new_jersey_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="@={viewModel.newJerseyQuantities}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/handle_check_box"
+                    style="@style/CheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:checked="@={viewModel.handle}"
+                    android:text="@string/handle"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/new_jersey_enter_quantities_text_input_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/handle_quantities_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:hint="@string/enter_quantities"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/handle_check_box">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/handle_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="@={viewModel.handleQuantities}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/observations_quantities_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:hint="@string/enter_observations"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/handle_quantities_text_input_layout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/observations_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text|textMultiLine"
+                        android:minLines="2"
+                        android:text="@={viewModel.observationsQuantities}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onNextClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/next"
+            app:iconGravity="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previou_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onPreviousClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/back"
+            app:iconGravity="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

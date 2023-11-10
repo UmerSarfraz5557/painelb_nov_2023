@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="br.com.painelb.model.occurrences.OccurreceWitnes" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+        <TableLayout
+            android:id="@+id/vehicle_table_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_guideline_start"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/top_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline_start">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/victim_information_text_view"
+                    style="@style/TextBody2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/witness_information_title" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_plate_text_hint_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/witness_name" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_plate_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@{item.name}"
+                    tools:text="@string/witness_name" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_document_type_hint_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/witness_document_type" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_document_type_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@{item.documentType}"
+                    tools:text="@string/witness_document_type" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_document_number_hint_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/witness_document_number" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_document_number_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@{item.documentNumber}"
+                    tools:text="@string/witness_document_number" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_type_hint_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/witness_address" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/vehicle_type_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@{item.address}"
+                    tools:text="@string/witness_address" />
+            </TableRow>
+        </TableLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/edit_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@+id/delete_image_view"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline_start"
+            app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/delete_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline_start"
+            app:srcCompat="@drawable/ic_baseline_close_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

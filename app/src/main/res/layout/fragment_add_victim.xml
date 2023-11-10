@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.occurrences.create.fragments.addvictim.AddVictimViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/info_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            style="@style/AppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="noScroll">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:importantForAccessibility="yes"
+                android:nextFocusDown="@id/user_name_text_input_layout"
+                app:layout_collapseMode="pin"
+                app:title="@string/title_fragment_add_victim"
+                app:subtitle="@string/victim_information_title"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toTopOf="@+id/save_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/main_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/top_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/bottom_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/end_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/victim_name_text_input_layout"
+                        style="@style/TextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/victim_name"
+                        app:error="@{viewModel.errorVictimName}"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                        app:layout_constraintTop_toTopOf="@+id/top_guideline_start">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/victim_name_edit_text"
+                            style="@style/TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapSentences"
+                            android:text="@={viewModel.victimName}"
+                            app:backgroundTint="@android:color/white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/victim_status_text_input_layout"
+                        style="@style/TextInputLayoutSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/victim_status"
+                        app:error="@{viewModel.errorVictimStatus}"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/victim_name_text_input_layout">
+
+                        <br.com.painelb.widgets.TextInputMaterialAutoCompleteTextView
+                            android:id="@+id/victim_status_edit_text"
+                            style="@style/TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:onItemClick="@{(p, v, pos, id) -> viewModel.victimStatusItemSelected(p.getItemAtPosition(pos))}"
+                            app:backgroundTint="@android:color/white"
+                            app:bind_adapter="@{@stringArray/victim_status}"
+                            app:bind_item="@{viewModel.victimStatus}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/genre_input_layout"
+                        style="@style/TextInputLayoutSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/genre"
+                        app:error="@{viewModel.errorGenre}"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/victim_status_text_input_layout">
+
+                        <br.com.painelb.widgets.TextInputMaterialAutoCompleteTextView
+                            android:id="@+id/genre_edit_text"
+                            style="@style/TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:onItemClick="@{(p, v, pos, id) -> viewModel.genreItemSelected(p.getItemAtPosition(pos))}"
+                            app:backgroundTint="@android:color/white"
+                            app:bind_adapter="@{@stringArray/genre}"
+                            app:bind_item="@{viewModel.genre}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/victim_document_type_text_input_layout"
+                        style="@style/TextInputLayoutSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/victim_document_type"
+                        app:error="@{viewModel.errorVictimDocumentType}"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/genre_input_layout">
+
+                        <br.com.painelb.widgets.TextInputMaterialAutoCompleteTextView
+                            android:id="@+id/victim_document_type_edit_text"
+                            style="@style/TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:onItemClick="@{(p, v, pos, id) -> viewModel.victimDocumentTypeItemSelected(p.getItemAtPosition(pos))}"
+                            app:backgroundTint="@android:color/white"
+                            app:bind_adapter="@{@stringArray/witness_document_type}"
+                            app:bind_item="@{viewModel.victimDocumentType}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/victim_document_number_text_input_layout"
+                        style="@style/TextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/victim_document_number"
+                        app:error="@{viewModel.errorVictimDocumentNumber}"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/victim_document_type_text_input_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/victim_document_number_edit_text"
+                            style="@style/TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="@={viewModel.victimDocumentNumber}"
+                            app:backgroundTint="@android:color/white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/victim_date_text_input_layout"
+                        style="@style/TextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/victim_birth_date"
+                        app:error="@{viewModel.errorVictimBirthDate}"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/victim_address_text_input_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/victi_date_edit_text"
+                            style="@style/TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/ic_experience_calender_24dp"
+                            android:inputType="date"
+                            android:text="@={viewModel.victimBirthDate}"
+                            app:backgroundTint="@android:color/white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/victim_address_text_input_layout"
+                        style="@style/TextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/victim_address"
+                        app:error="@{viewModel.errorVictimAddress}"
+                        app:errorEnabled="true"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/victim_document_number_text_input_layout">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/victim_address_edit_text"
+                            style="@style/TextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapSentences"
+                            android:text="@={viewModel.victimAddress}"
+                            app:backgroundTint="@android:color/white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_normal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/victim_address_text_input_layout" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_button"
+                style="@style/ButtonOutline2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.validateData()}"
+
+                android:text="@string/save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

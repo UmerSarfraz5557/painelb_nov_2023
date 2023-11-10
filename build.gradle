@@ -1,0 +1,416 @@
+buildscript {
+    ext {
+        androidGradlePluginVersion = '4.0.0'
+        kotlinVersion = '1.3.72'
+        navSaveArgsVersion = '2.3.0-alpha02'
+        minSdk = 22
+        compileSdk = 29
+        navigationVersion = '2.3.0-alpha02'
+
+        //Ui
+        appcompatVersion = '1.1.0'
+        APPCOMPAT = "androidx.appcompat:appcompat:$appcompatVersion"
+        materialVersion = '1.2.0-alpha04'
+        MATERIAL = "com.google.android.material:material:$materialVersion"
+        constraintLayoutVersion = '2.0.0-alpha3'
+        CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+        SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-beta01"
+
+        calligraphyVersion = '3.1.1'
+        viewpumpVersion = '2.0.3'
+        CALLIGRAPHY = [
+                calligraphy: "io.github.inflationx:calligraphy3:${calligraphyVersion}",
+                viewpump   : "io.github.inflationx:viewpump:${viewpumpVersion}"
+        ]
+
+        // Architecture Components
+        lifecycleKtxVersion = '2.2.0-rc03'
+        lifecycleVersion = '2.1.0'
+        stateVersion = '1.0.0-rc03'
+        LIFE_CYCLE = [
+                extensions     : "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
+                save_state     : "androidx.lifecycle:lifecycle-viewmodel-savedstate:${stateVersion}",
+                kapt           : "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
+                test           : "androidx.arch.core:core-testing:${lifecycleVersion}",
+                ktxRuntime     : "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleKtxVersion}",
+                ktxLiveData    : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleKtxVersion}",
+                reactiveStreams: "androidx.lifecycle:lifecycle-reactivestreams-ktx:${lifecycleKtxVersion}",
+                viewModel      : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleKtxVersion}"
+        ]
+
+        // IText
+        IText =  'com.itextpdf:itextg:5.5.10'
+
+        // XmlWorker
+       XmlWorker = 'com.itextpdf.tool:xmlworker:5.5.3'
+
+
+        // PDF TO Image
+        PDFView =  'com.github.barteksc:pdfium-android:1.9.0'
+
+        //Paging
+        pagingVersion = "2.1.1"
+        PAGING = [
+                runtime: "androidx.paging:paging-runtime:$pagingVersion",
+                common : "androidx.paging:paging-common:$pagingVersion",
+                ktx    : "androidx.paging:paging-runtime-ktx:$pagingVersion"
+        ]
+
+        //Database
+        roomVersion = "2.2.6"
+        ROOM = [
+                runtime: "androidx.room:room-runtime:$roomVersion",
+                kapt   : "androidx.room:room-compiler:$roomVersion",
+                ktx    : "androidx.room:room-ktx:$roomVersion"
+        ]
+
+        // Kotlin stdlib
+        KOTLIN_STDLIB = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+        // Retrofit
+        retrofitVersion = '2.7.1'
+        RETROFIT = [
+                retrofit       : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+                converter_moshi: "com.squareup.retrofit2:converter-moshi:${retrofitVersion}"
+        ]
+
+        moshiVersion = '1.9.2'
+        MOSHI = [
+                moshi: "com.squareup.moshi:moshi-kotlin:${moshiVersion}",
+                kapt : "com.squareup.moshi:moshi-kotlin-codegen:${moshiVersion}"
+        ]
+
+        // Dagger
+        daggerVersion = '2.25.3'
+        DEPENDENCY_INJECTION = [
+                dagger        : "com.google.dagger:dagger:${daggerVersion}",
+                support       : "com.google.dagger:dagger-android-support:${daggerVersion}",
+                kapt_compiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                kapt_processor: "com.google.dagger:dagger-android-processor:${daggerVersion}"
+        ]
+
+        TINY = "com.zxy.android:tiny:1.1.0"
+
+        // Rx
+        rxVersion = '2.1.1'
+        RX = [
+                java   : "io.reactivex.rxjava2:rxjava:${rxVersion}",
+                android: "io.reactivex.rxjava2:rxandroid:${rxVersion}"
+        ]
+
+        //NAVIGATION
+        NAVIGATION = [
+                fragment: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+                ui      : "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+        ]
+
+        // Stetho
+        stethoVersion = "1.5.1"
+        STETHO = [
+                stetho: "com.facebook.stetho:stetho:${stethoVersion}",
+                okhttp: "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
+        ]
+
+        // Utils
+        ktxVersion = '1.1.0'
+        KTX = [
+                core     : "androidx.core:core-ktx:${ktxVersion}",
+                colletion: "androidx.collection:collection-ktx:${ktxVersion}",
+                fragment : "androidx.fragment:fragment-ktx:${ktxVersion}",
+                activity : "androidx.activity:activity-ktx:1.1.0-rc03"
+        ]
+
+        // Timber
+        TIMBER = 'com.jakewharton.timber:timber:4.7.1'
+
+        //Glide
+        glideVersion = '4.9.0'
+        GLIDE = [
+                glide: "com.github.bumptech.glide:glide:${glideVersion}",
+                kapt : "com.github.bumptech.glide:compiler:${glideVersion}"
+        ]
+
+        // Firebase
+        FIRE_BASE = [
+                core          : "com.google.firebase:firebase-core:17.0.1",
+                crashlytics   : "com.crashlytics.sdk.android:crashlytics:2.10.1",
+                cloudMessaging: "com.google.firebase:firebase-messaging:19.0.1"
+
+        ]
+
+
+        RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.2.0"
+
+        //InkPageIndicator
+        INK_PAGE_INDICATOR = "com.pacioianu.david:ink-page-indicator:1.3.0"
+
+
+        //Localehelper
+        LOCAL_HELPER = 'com.zeugmasolutions.localehelper:locale-helper-android:1.0.2'
+
+        //Easy Permissions
+        EASY_PERMISON = 'pub.devrel:easypermissions:3.0.0'
+
+        // Leak Canary
+        leakCanaryVersion = '2.0-alpha-3'
+        LEAK_CANNARY = "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
+
+        // MPAndroidChart
+        mpChartVersion = 'v3.1.0'
+        MP_CHART = "com.github.PhilJay:MPAndroidChart:${mpChartVersion}"
+
+        //Filepicker
+        FILE_PICKER = "com.droidninja:filepicker:2.2.1"
+        //Webkit
+        webkit = "androidx.webkit:webkit:1.2.0"
+
+        // Instrumentation tests
+        espressoVersion = '3.1.1'
+        runnerVersion = '1.1.1'
+        rulesVersion = '1.1.0'
+        truthVersion = '0.40'
+
+        INSTRUMENT_TESTS = [
+                expresspCore   : "androidx.test.espresso:espresso-core:${espressoVersion}",
+                expresspContrib: "androidx.test.espresso:espresso-contrib:${espressoVersion}",
+                runner         : "androidx.test:runner:${runnerVersion}",
+                rule           : "androidx.test:rules:${rulesVersion}",
+                truth          : "com.google.truth:truth:${truthVersion}"
+
+        ]
+
+        // Local unit tests
+        junitVersion = '4.12'
+        mockitoVersion = "2.8.9"
+        hamcrestVersion = '2.1'
+        UNIT_TEST = [
+                junit   : "junit:junit:${junitVersion}",
+                mockito : "org.mockito:mockito-core:${mockitoVersion}",
+                hamcrest: "org.hamcrest:hamcrest-library:${hamcrestVersion}",
+        ]
+
+        /*add all dependencies to this array*/
+        PROJECT_KAPT = [
+                DEPENDENCY_INJECTION.kapt_compiler,
+                DEPENDENCY_INJECTION.kapt_processor,
+                ROOM.kapt,
+                GLIDE.kapt,
+                MOSHI.kapt
+        ]
+
+
+        PROJECT_DEPENDENCIES = [
+                APPCOMPAT,
+                MATERIAL,
+                CONSTRAINT_LAYOUT,
+                CALLIGRAPHY.calligraphy,
+                CALLIGRAPHY.viewpump,
+                SWIPE_REFRESH_LAYOUT,
+                LIFE_CYCLE.extensions,
+                LIFE_CYCLE.save_state,
+                LIFE_CYCLE.ktxRuntime,
+                LIFE_CYCLE.ktxLiveData,
+                LIFE_CYCLE.reactiveStreams,
+                LIFE_CYCLE.viewModel,
+                DEPENDENCY_INJECTION.dagger,
+                DEPENDENCY_INJECTION.support,
+                PAGING.runtime,
+                PAGING.common,
+                PAGING.ktx,
+                ROOM.runtime,
+                ROOM.ktx,
+                RETROFIT.retrofit,
+                RETROFIT.converter_moshi,
+                MOSHI.moshi,
+                TINY,
+                XmlWorker,
+                RX.java,
+                RX.android,
+                NAVIGATION.fragment,
+                NAVIGATION.ui,
+                STETHO.stetho,
+                STETHO.okhttp,
+                KTX.core,
+                KTX.colletion,
+                KTX.fragment,
+                KTX.activity,
+                TIMBER,
+                //IText,
+                PDFView,
+                GLIDE.glide,
+                FIRE_BASE.core,
+                FIRE_BASE.crashlytics,
+                FIRE_BASE.cloudMessaging,
+                RECYCLER_VIEW,
+                INK_PAGE_INDICATOR,
+                LOCAL_HELPER,
+                EASY_PERMISON,
+                MP_CHART,
+                FILE_PICKER,
+                webkit
+        ]
+
+        PROJECT_COMPILE_ONLY = [
+        ]
+
+        PROJECT_ANDROID_TEST_DEPENDENCIES = [
+                INSTRUMENT_TESTS.expresspCore,
+                INSTRUMENT_TESTS.expresspContrib,
+                INSTRUMENT_TESTS.runner,
+                INSTRUMENT_TESTS.rule,
+                INSTRUMENT_TESTS.truth
+        ]
+
+        PROJECT_TEST_DEPENDENCIES = [
+                UNIT_TEST.junit,
+                UNIT_TEST.mockito,
+                UNIT_TEST.hamcrest,
+                LIFE_CYCLE.test
+        ]
+        kotlin_version = '1.4.10'
+
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:${androidGradlePluginVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navSaveArgsVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+final String APP_PLUGIN = 'com.android.application'
+final String KOTLIN_ANDROID_PLUGIN = 'kotlin-android'
+final String KOTLIN_EXTENSIONS_PLUGIN = 'kotlin-android-extensions'
+final String KOTLIN_KAPT_PLUGIN = 'kotlin-kapt'
+final String SAVE_ARGS = 'androidx.navigation.safeargs.kotlin'
+
+subprojects {
+    apply plugin: APP_PLUGIN
+    apply plugin: KOTLIN_ANDROID_PLUGIN
+    apply plugin: KOTLIN_EXTENSIONS_PLUGIN
+    apply plugin: KOTLIN_KAPT_PLUGIN
+    apply plugin: SAVE_ARGS
+
+    dependencies {
+        api PROJECT_DEPENDENCIES
+        implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        androidTestImplementation PROJECT_ANDROID_TEST_DEPENDENCIES
+        testImplementation PROJECT_TEST_DEPENDENCIES
+        kapt PROJECT_KAPT
+        //  debugApi LEAK_CANNARY
+        compileOnly PROJECT_COMPILE_ONLY
+
+        //sdppp library
+        implementation 'com.intuit.sdp:sdp-android:1.0.6'
+        implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+
+
+        //implementation 'com.google.android.play:core:1.6.4'
+
+
+
+    }
+
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+    android {
+
+        packagingOptions {
+            pickFirst 'com/itextpdf/io/font/*'
+            pickFirst 'com/itextpdf/io/font/cmap/*'
+        }
+
+        bundle {
+            language {
+                enableSplit = false
+            }
+        }
+
+        androidExtensions {
+            experimental = true
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8
+        }
+
+        buildFeatures {
+            dataBinding = true
+        }
+
+        signingConfigs {
+            release {
+                try {
+                    keyAlias keystoreProperties['keyAlias']
+                    keyPassword keystoreProperties['keyPassword']
+                    storeFile file(keystoreProperties['storeFile'])
+                    storePassword keystoreProperties['storePassword']
+                }
+                catch (ex) {
+                    throw new IOException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties. " + ex.toString())
+                }
+            }
+        }
+
+        defaultConfig {
+            minSdkVersion minSdk
+            compileSdkVersion compileSdk
+            targetSdkVersion compileSdk
+            multiDexEnabled true
+            versionCode 1
+            versionName "1.0"
+            applicationId "br.com.painelb"
+            vectorDrawables.useSupportLibrary = true
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments = [
+                            "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                            "room.incremental"     : "true",
+                            "room.expandProjection": "true"]
+                }
+            }
+
+            buildTypes {
+                debug {
+                    applicationIdSuffix '.debug'
+                    versionNameSuffix '-DEBUG'
+                    minifyEnabled false
+                    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                }
+
+                release {
+                    minifyEnabled true
+                    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                    signingConfig signingConfigs.release
+                }
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

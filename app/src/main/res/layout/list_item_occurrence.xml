@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="br.com.painelb.model.occurrences.CreateOccurrence" />
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.occurrences.fragment.sent.OccurrencesSentViewModel" />
+
+        <variable
+            name="isExpanded"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+        <ImageView
+            android:id="@+id/expand_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:importantForAccessibility="no"
+            android:rotationX="@{isExpanded ? 180f : 0f}"
+            android:src="@drawable/ic_expand_more"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline_start" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title_text_view"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:text="@{String.format(@string/type_occurrences_format, item.occurrence.occurrenceType)}"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/correct_answer_text_view"
+            app:layout_constraintEnd_toStartOf="@+id/expand_icon"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline_start"
+            tools:text="Type" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/correct_answer_text_view"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:text="@{String.format(@string/date_time_format, item.occurrence.date, item.occurrence.time)}"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/delete_button"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            tools:text="11/12/2021 14:10" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/update_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:onClick="@{() -> viewModel.update(item)}"
+            android:text="@string/update"
+            app:layout_constraintBottom_toBottomOf="@+id/delete_button"
+            app:layout_constraintEnd_toStartOf="@+id/delete_button"
+            app:layout_constraintTop_toTopOf="@+id/delete_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delete_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:onClick="@{() -> viewModel.delete(item)}"
+            android:text="@string/delete"
+            app:layout_constraintBottom_toTopOf="@+id/address_text_input_layout"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start" />
+
+        <ImageView
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:importantForAccessibility="no"
+            android:onClick="@{() -> viewModel.share(item)}"
+            android:src="@drawable/ic_baseline_share_24"
+            app:goneUnless="@{isExpanded}"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/address_text_input_layout" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/address_text_input_layout"
+            style="@style/TextBodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_zero"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:text="@{String.format(@string/address_format, item.occurrence.address)}"
+            app:goneUnless="@{isExpanded}"
+            app:layout_constraintBottom_toTopOf="@+id/perimeter_text_input_layout"
+            app:layout_constraintEnd_toStartOf="@+id/share_button"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            tools:text="@string/address" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/perimeter_text_input_layout"
+            style="@style/TextBodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:text="@{String.format(@string/perimeter_format, item.occurrence.perimeter)}"
+            app:goneUnless="@{isExpanded}"
+            app:layout_constraintBottom_toTopOf="@+id/descriptions_text_input_layout"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            tools:text="@string/perimeter" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/descriptions_text_input_layout"
+            style="@style/TextBodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:text="@{String.format(@string/descriptions_format, item.occurrence.description)}"
+            app:goneUnless="@{isExpanded}"
+            app:layout_constraintBottom_toTopOf="@+id/vehicle_conductor_recyclerView"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            tools:text="@string/descriptions" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vehicle_conductor_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_small"
+            app:bind_vehicle_conductor="@{item.vehicleConductor}"
+            app:delete_enable="@{false}"
+            app:goneUnless="@{isExpanded &amp;&amp; item.vehicleConductor.size()> 0}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/image_recyclerView"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            tools:itemCount="1"
+            tools:listitem="@layout/list_item_vehicle_conductor" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/image_recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/spacing_normal"
+            app:goneUnless="@{isExpanded &amp;&amp; item.occurrencePhotos.size()> 0}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            tools:itemCount="1"
+            tools:listitem="@layout/list_item_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/man_nav_graph"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="br.com.painelb.ui.main.fragments.home.HomeFragment"
+        android:label="@string/title_fragment_home">
+        <action
+            android:id="@+id/navigate_to_occurrences_fragment"
+            app:destination="@id/occurrences_fragment" />
+        <action
+            android:id="@+id/navigate_to_checkListFragment"
+            app:destination="@id/check_list_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/occurrences_fragment"
+        android:name="br.com.painelb.ui.main.fragments.occurrences.OccurrencesFragment"
+        android:label="@string/title_fragment_occurrences">
+        <action
+            android:id="@+id/navigate_to_create_occurrences_fragment"
+            app:destination="@id/create_occurrences_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/create_occurrences_fragment"
+        android:name="br.com.painelb.ui.main.fragments.occurrences.create.CreateOccurrencesFragment"
+        android:label="@string/title_fragment_create_occurrences">
+        <action
+            android:id="@+id/navigate_to_addVehicleConductorFragment"
+            app:destination="@id/addVehicleConductorFragment" />
+        <action
+            android:id="@+id/navigate_to_addVictimFragment"
+            app:destination="@id/addVictimFragment" />
+        <action
+            android:id="@+id/navigate_to_addWitnessFragment"
+            app:destination="@id/addWitnessFragment" />
+        <argument
+            android:name="Id"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <argument
+            android:name="itemType"
+            app:argType="br.com.painelb.model.ItemType" />
+    </fragment>
+    <fragment
+        android:id="@+id/addVehicleConductorFragment"
+        android:name="br.com.painelb.ui.main.fragments.occurrences.create.fragments.addvehicle.AddVehicleConductorFragment"
+        android:label="@string/title_fragment_add_vehicle_conductor">
+        <argument
+            android:name="occurrenceId"
+            app:argType="long" />
+        <argument
+            android:name="vehicleConductor"
+            android:defaultValue="@null"
+            app:argType="br.com.painelb.model.occurrences.VehicleConductor"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addVictimFragment"
+        android:name="br.com.painelb.ui.main.fragments.occurrences.create.fragments.addvictim.AddVictimFragment"
+        android:label="@string/title_fragment_add_victim">
+        <argument
+            android:name="occurrenceId"
+            app:argType="long" />
+        <argument
+            android:name="occurrenceVictim"
+            android:defaultValue="@null"
+            app:argType="br.com.painelb.model.occurrences.OccurrenceVictim"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWitnessFragment"
+        android:name="br.com.painelb.ui.main.fragments.occurrences.create.fragments.adwitness.AddWitnessFragment"
+        android:label="@string/title_fragment_add_witness">
+        <argument
+            android:name="occurrenceId"
+            app:argType="long" />
+        <argument
+            android:name="occurreceWitnes"
+            android:defaultValue="@null"
+            app:argType="br.com.painelb.model.occurrences.OccurreceWitnes"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/check_list_fragment"
+        android:name="br.com.painelb.ui.main.fragments.checklist.CheckListFragment"
+        android:label="@string/title_fragment_check_list">
+        <action
+            android:id="@+id/navigate_to_create_check_list_fragment"
+            app:destination="@id/create_check_list_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/create_check_list_fragment"
+        android:name="br.com.painelb.ui.main.fragments.checklist.create.CreateCheckListContainerFragment"
+        android:label="@string/title_fragment_create_check_list">
+
+        <argument
+            android:name="Id"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <argument
+            android:name="itemType"
+            app:argType="br.com.painelb.model.ItemType" />
+    </fragment>
+</navigation>

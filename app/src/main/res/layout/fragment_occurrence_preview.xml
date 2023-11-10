@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.com.painelb.network.Resource" />
+
+        <import type="br.com.painelb.model.ItemType" />
+
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.occurrences.create.CreateOccurrenceViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/next_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.main.fragments.checklist.create.fragment.VehicleFragment">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/type_of_occurrence_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:background="@drawable/cell_shape"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_large_huge"
+                    android:text="@{String.format(@string/type_occurrences_format, viewModel.typeOfOccurrence)}"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    tools:text="@string/type_of_occurrence"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/address_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:background="@drawable/cell_shape"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_zero"
+                    android:text="@{String.format(@string/address_format, viewModel.address)}"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/type_of_occurrence_text_input_layout"
+                    tools:text="@string/address" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/perimeter_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:background="@drawable/cell_shape"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_zero"
+                    android:text="@{String.format(@string/perimeter_format, viewModel.perimeter)}"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/address_text_input_layout"
+                    tools:text="@string/perimeter" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/date_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:background="@drawable/cell_shape"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_zero"
+                    android:text="@{String.format(@string/date_time_format, viewModel.date, viewModel.time)}"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/perimeter_text_input_layout"
+                    tools:text="@string/date" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/descriptions_text_input_layout"
+                    style="@style/TextBodySmall2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_zero"
+                    android:text="@{String.format(@string/descriptions_format, viewModel.descriptions)}"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/date_text_input_layout"
+                    tools:text="@string/descriptions" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vehicle_conductor_recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:bind_vehicle_conductor="@{viewModel.vehicleConductors}"
+                    app:delete_enable="@{false}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptions_text_input_layout"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/list_item_vehicle_conductor" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/are_there_victims_check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:checked="@={viewModel.hasVictim}"
+                    android:clickable="false"
+                    android:text="@string/are_there_victims"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/vehicle_conductor_recyclerView" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/victim_recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:bind_victim="@{viewModel.victims}"
+                    app:delete_enable="@{false}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/are_there_victims_check_box"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/list_item_victim" />
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/are_there_any_witnesses_check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.hasWitness}"
+                    android:clickable="false"
+                    android:text="@string/are_there_any_witnesses"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/victim_recyclerView" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/witness_recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:bind_witness="@{viewModel.witness}"
+                    app:delete_enable="@{false}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/are_there_any_witnesses_check_box"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/list_item_witness" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/image_recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    app:layout_constraintBottom_toTopOf="@+id/bottom_guideline_start"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/witness_recyclerView"
+                    app:layout_constraintVertical_bias="0.40"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/list_item_image" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_recyclerView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onSubmitClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/submit"
+            app:iconGravity="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/save_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.save()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/save"
+            app:goneUnless="@{viewModel.itemType != ItemType.REMOTE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/next_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/previou_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previou_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onPreviousClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/back"
+            app:iconGravity="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/save_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_state_white"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resource="@{(Resource) viewModel.occurrenceSaveStatus}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

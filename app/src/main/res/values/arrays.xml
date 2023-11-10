@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="occurrence_tab_title">
+        <item>Enviado</item>
+        <item>Pendente</item>
+    </string-array>
+
+    <string-array name="vtr_value">
+        <item>DT-1123</item>
+        <item>DT-1132</item>
+        <item>DT-1244</item>
+        <item>DT-2344</item>
+        <item>DT-3422</item>
+    </string-array>
+
+    <string-array name="check_list_tab_title">
+        <item>Veículo/condutor</item>
+        <item>Checklist</item>
+        <item>Imagem</item>
+        <item>Prévia</item>
+    </string-array>
+
+    <string-array name="fuel_quantity">
+        <item>1/2</item>
+        <item>1/4</item>
+        <item>2/4</item>
+        <item>3/4</item>
+        <item>Cheio</item>
+        <item>Reserva</item>
+        <item>Danificado</item>
+    </string-array>
+
+    <string-array name="create_occurrences_tab_title">
+        <item>Ocorrência</item>
+        <item>Veículo/condutor</item>
+        <item>Vítima</item>
+        <item>Testemunha</item>
+        <item>Imagem</item>
+        <item>Prévia</item>
+    </string-array>
+
+    <string-array name="create_occurrences_tab_title2">
+        <item>Occurrence</item>
+        <item>Survey</item>
+        <item>Vehicle/driver</item>
+        <item>Victim</item>
+        <item>Witness</item>
+        <item>Image</item>
+        <item>Preview</item>
+    </string-array>
+
+    <string-array name="type_of_occurrence">
+        <item>Atropelamento de pedestre</item>
+        <item>Atropelamento de animal</item>
+        <item>Capotamento</item>
+        <item>Colisão</item>
+        <item>Tombamento</item>
+        <item>Abalroamento</item>
+        <item>Choque</item>
+        <item>Pane mecânica</item>
+        <item>Pane seca</item>
+        <item>Veículo pegando fogo</item>
+        <item>Animal vivo na via</item>
+        <item>Animal morto na via</item>
+        <item>Via interditada</item>
+        <item>Recapeamento de via</item>
+        <item>Trecho em obra</item>
+        <item>Protesto</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="perimeter">
+        <item>Km 0</item>
+        <item>Km 1 ao 4</item>
+        <item>Km 4 ao 8</item>
+        <item>Km 8 ao 12</item>
+        <item>Km 12 ao 18</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="vehicle_document_type">
+        <item>CRLV</item>
+        <item>RENAVAM</item>
+        <item>CHASSI</item>
+        <item>VIS</item>
+    </string-array>
+
+    <string-array name="vehicle_type">
+        <item>Auto</item>
+        <item>Camioneta</item>
+        <item>Caminhão</item>
+        <item>Micro</item>
+        <item>Oficial</item>
+        <item>Bicicleta</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="damage_category">
+        <item>Pequena monta</item>
+        <item>Média monta</item>
+        <item>Grande monta</item>
+        <item>Perda total</item>
+    </string-array>
+
+    <string-array name="vehicle_procedure">
+        <item>Veículo retido</item>
+        <item>Veículo removido</item>
+        <item>Veículo entregue ao condutor</item>
+        <item>Veículo entregue a condutor habilitado</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="driver_document_type">
+        <item>CNH</item>
+        <item>RG</item>
+        <item>CPF</item>
+        <item>FUNCIONAL</item>
+        <item>CARTEIRA DE TRABALHO</item>
+        <item>OUTROS</item>
+    </string-array>
+
+    <string-array name="driver_procedure">
+        <item>Condutor liberado</item>
+        <item>Avaliado e liberado</item>
+        <item>Recusou atendimento</item>
+        <item>Hospitalizado</item>
+        <item>Abandonou o local</item>
+        <item>Apresentado à delegacia</item>
+        <item>Encaminhado ao conselho tutelar</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="victim_status">
+        <item>Leve</item>
+        <item>Grave</item>
+        <item>Fatal</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="genre">
+        <item>Masculino</item>
+        <item>Feminino</item>
+    </string-array>
+
+    <string-array name="witness_document_type">
+        <item>CNH</item>
+        <item>RG</item>
+        <item>CPF</item>
+        <item>FUNCIONAL</item>
+        <item>CARTEIRA DE TRABALHO</item>
+        <item>OUTROS</item>
+    </string-array>
+
+    <string-array name="team_service">
+        <item>ALFA</item>
+        <item>BRAVO</item>
+        <item>CHARLIE</item>
+        <item>DELTA</item>
+        <item>ECO</item>
+        <item>FOX</item>
+        <item>GOLF</item>
+        <item>HOTEL</item>
+        <item>INDIA</item>
+        <item>JULIETE</item>
+    </string-array>
+
+    <string-array name="carpet">
+        <item>Normal</item>
+        <item>Não tem</item>
+        <item>Rasgado</item>
+    </string-array>
+
+    <string-array name="weather_pt">
+        <item>Bom</item>
+        <item>Neblina</item>
+        <item>Chuva</item>
+    </string-array>
+
+    <string-array name="weather_en">
+        <item>Good</item>
+        <item>Foggy</item>
+        <item>Rainy</item>
+    </string-array>
+
+    <string-array name="semaphore_pt">
+        <item>Funcionando</item>
+        <item>Desligado</item>
+        <item>Defeituoso</item>
+        <item>Inexistente</item>
+        <item>Advertência</item>
+        <item>Sinalização vertical</item>
+        <item>Sinalização horizontal</item>
+    </string-array>
+
+    <string-array name="semaphore_en">
+        <item>Working</item>
+        <item>Off</item>
+        <item>Faulty</item>
+        <item>Nonexistent</item>
+        <item>Caution</item>
+        <item>Vertical signage</item>
+        <item>Horizontal signage</item>
+    </string-array>
+
+    <string-array name="lighting_pt">
+        <item>Do dia</item>
+        <item>Noite com iluminação artificial</item>
+        <item>Anoitecer/amanhecer</item>
+    </string-array>
+
+    <string-array name="lighting_en">
+        <item>Daytime</item>
+        <item>Night with artificial lighting</item>
+        <item>Dusk/Dawn</item>
+    </string-array>
+
+    <string-array name="preserved_location_pt">
+        <item>Sim</item>
+        <item>Não</item>
+    </string-array>
+
+    <string-array name="preserved_location_en">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="road_conditions_pt">
+        <item>Seca</item>
+        <item>Molhada</item>
+        <item>Em obras</item>
+        <item>Oleosa</item>
+        <item>Enlameada</item>
+        <item>Inundada</item>
+        <item>Obstruída</item>
+        <item>Interrompida</item>
+    </string-array>
+
+    <string-array name="road_conditions_en">
+        <item>Dry</item>
+        <item>Wet</item>
+        <item>Under construction</item>
+        <item>Oily</item>
+        <item>Muddy</item>
+        <item>Flooded</item>
+        <item>Blocked</item>
+        <item>Interrupted</item>
+    </string-array>
+
+    <string-array name="paving_pt">
+        <item>Asfalto</item>
+        <item>Paralelepípido</item>
+        <item>Concreto</item>
+        <item>Terra/areia</item>
+        <item>Esburacada</item>
+        <item>Cascalho</item>
+        <item>Piçarra</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="paving_en">
+        <item>Asphalt</item>
+        <item>Cobblestone</item>
+        <item>Concrete</item>
+        <item>Dirt/Sand</item>
+        <item>Potholed</item>
+        <item>Gravel</item>
+        <item>Gravel with tar</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="performed_measures_pt">
+        <item>Sim</item>
+        <item>Não</item>
+    </string-array>
+
+    <string-array name="performed_measures_en">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="obtained_images_pt">
+        <item>Sim</item>
+        <item>Não</item>
+    </string-array>
+
+    <string-array name="obtained_images_en">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="road_information_pt">
+        <item>Com sinalização (horizontal/vertical)</item>
+        <item>Parcialmente sinalizada</item>
+        <item>Sem sinalização</item>
+    </string-array>
+
+    <string-array name="road_information_en">
+        <item>With signage (horizontal/vertical)</item>
+        <item>Partially signposted</item>
+        <item>Without signage</item>
+    </string-array>
+
+</resources>

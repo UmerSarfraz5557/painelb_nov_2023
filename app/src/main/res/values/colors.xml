@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">@color/primary_orange</color>
+    <color name="color_secondary">@color/secondary_orange</color>
+    <color name="color_primary_dark">@color/yellow_primary_dark</color>
+    <color name="color_accent">@color/primary_orange</color>
+    <color name="color_on_secondary">@color/black</color>
+
+    <color name="yellow_primary">#ffa000</color>
+    <color name="yellow_primary_dark">#c67100</color>
+    <color name="yellow_primary_light">#ffd149</color>
+    <color name="navigationBarColor">#444D51</color>
+
+
+    <color name="color_control_light">#39000000</color> <!-- Same as textColorPrimary disabled -->
+
+    <color name="ic_launcher_background">@color/light_grey</color>
+    <!-- Scrim colors -->
+    <color name="system_ui_scrim_light">#B3FFFFFF</color> <!-- 70% white -->
+    <color name="system_ui_scrim_black">#40000000</color> <!-- 25% black -->
+
+    <!-- We use a dark scrim by default since light status is API 23+ -->
+    <color name="status_bar_scrim">@color/system_ui_scrim_black</color>
+    <!-- We use a dark scrim by default since light nav bar is API 27+ -->
+    <color name="nav_bar_scrim">@color/system_ui_scrim_black</color>
+
+    <!-- Other colors with dark mode alternatives -->
+    <color name="wifi_card_background">#e8f0fe</color>
+    <color name="event_card_header_background">@color/event_card_header_background_light</color>
+    <color name="list_divider">#1f000000</color>>
+
+    <!-- Other colors -->
+    <color name="default_tag_color">#999</color>
+    <color name="light_grey">#e6e6e6</color>
+    <color name="scrim">#33000000</color> <!-- 20% black -->
+
+    <color name="event_card_header_background_light">#f8f9fa</color>
+    <color name="event_card_header_background_dark">#252729</color>
+
+    <integer-array name="swipe_refresh">
+        <item>@color/deep_sky_blue</item>
+        <item>@color/teal</item>
+        <item>@color/bright_light_blue</item>
+        <item>@color/sun_yellow</item>
+        <item>@color/primary_orange</item>
+    </integer-array>
+
+    <color name="dark_blue">#041E42</color>
+
+    <color name="deep_sky_blue">#224B68</color> <!-- colorPrimary in Light mode-->
+    <color name="warm_blue">#574ddd</color> <!-- colorPrimaryDark in Light mode-->
+    <color name="carolina_blue">#8ab4f8</color> <!-- colorPrimary in Dark mode-->
+    <color name="cornflower_blue">#669DF6</color> <!-- colorPrimaryDark in Dark mode-->
+
+    <color name="red_light">#D70307</color>
+    <color name="red_secundary">#FC1D22</color>
+    <color name="orange_light">#CEAF00</color>
+    <color name="green_light">#1EB83C</color>
+
+    <color name="yellow_light">#FFF112</color>
+
+
+    <color name="teal">#069f86</color>
+    <color name="bright_light_blue">#27e5fd</color>
+    <color name="sun_yellow">#fcd230</color>
+    <color name="primary_orange">#ff6c00</color>
+    <color name="secondary_orange">#FF8000</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="transparent">#0fff</color>
+
+    <color name="gray">#4DFFFFFF</color>
+    <color name="transparent_twenty_percent">#CC000000</color>
+    <color name="transparent_eighty_percent">#80000000</color>
+    <color name="transparent_forty_percent">#66000000</color> <!-- 40% black -->
+    <color name="unplayed_color">#80ffffff</color>
+    <color name="gray_100">#eaefee</color>
+
+    <!-- appbar -->
+    <color name="title_appbar">#041E42</color>
+
+</resources>

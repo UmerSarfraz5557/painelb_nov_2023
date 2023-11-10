@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="br.com.painelb.network.Resource" />
+
+        <import type="br.com.painelb.model.ItemType" />
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.checklist.create.CreateCheckListViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.fragments.checklist.create.fragment.PreviewFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/next_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.main.fragments.checklist.create.fragment.VehicleFragment">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+
+                <TableLayout
+                    android:id="@+id/vehicle_table_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="0,1"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline_start">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/vehicle_preview_text_input_layout"
+                            style="@style/TextBodyTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/vehicle_preview" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/date_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/date" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/date_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.date}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/team_service_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/team_service" />
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/team_service_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.teamService}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/conductor_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/conductor" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/conductor_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.conductor}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/plate_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/plate" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/plate_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.plate}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/prisma_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/prisma" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/prisma_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.prisma}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/departure_time_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/departure_time" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/departure_time_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.departureTime}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/return_time_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/return_time" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/return_time_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.departureTime}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/km_departure_time_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/km_departure" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/km_departure_time_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.kmDeparture}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/km_return_time_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/km_return" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/km_return_time_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.kmReturn}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/output_fuel_quantity_time_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/output_fuel_quantity" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/output_fuel_quantity_time_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.outputFuelQuantity}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/return_fuel_quantity_time_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/return_fuel_quantity" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/return_fuel_quantity_time_edit_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.returnFuelQuantity}" />
+
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/checklist_table_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:gravity="top|start"
+                    android:stretchColumns="0,1"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/vehicle_table_layout">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/check_list_preview_text_input_layout"
+                            style="@style/TextBodyTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_weight="1"
+                            android:text="@string/check_list_preview" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/carpet_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.carpet}"
+                            android:clickable="false"
+                            android:text="@string/carpet" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/tire_iron_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.tireIron}"
+                            android:clickable="false"
+                            android:text="@string/tire_iron" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/triangue_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.triangue}"
+                            android:clickable="false"
+                            android:text="@string/triangue" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/monkey_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.monkey}"
+                            android:clickable="false"
+                            android:text="@string/monkey" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/front_lighting_system_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.frontLightingSystem}"
+                            android:clickable="false"
+                            android:text="@string/front_lighting_system" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/rear_lighting_system_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.reaLightingSystem}"
+                            android:clickable="false"
+                            android:text="@string/rear_lighting_system" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/sirene_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.sirene}"
+                            android:clickable="false"
+                            android:text="@string/sirene" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/flashing_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.flashing}"
+                            android:clickable="false"
+                            android:text="@string/flashing" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/supply_card_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.supplyCard}"
+                            android:clickable="false"
+                            android:text="@string/supply_card" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/crlv_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.crlv}"
+                            android:clickable="false"
+                            android:text="@string/crlv" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/glacier_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.glacier}"
+                            android:clickable="false"
+                            android:text="@string/glacier" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/etilometer_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.etilometer}"
+                            android:clickable="false"
+                            android:text="@string/etilometer" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/pneus_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.pneus}"
+                            android:clickable="false"
+                            android:text="@string/pneus" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/stereo_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.stereo}"
+                            android:clickable="false"
+                            android:text="@string/stereo" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/cones_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.cones}"
+                            android:clickable="false"
+                            android:text="@string/cones" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/cones_enter_quantities_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.conesQuantities}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/super_cones_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.superCones}"
+                            android:text="@string/super_cones" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/super_cones_enter_quantities_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.supperConesQuantities}" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/new_jersey_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.newJersey}"
+                            android:clickable="false"
+                            android:text="@string/new_jersey" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/new_jersey_enter_quantities_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.newJerseyQuantities}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/handle_check_box"
+                            style="@style/CheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@={viewModel.handle}"
+                            android:clickable="false"
+                            android:text="@string/handle" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/handle_quantities_text_input_layout"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.handleQuantities}" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/observations_text"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:text="@string/observations" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/observations"
+                            style="@style/TextBody1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.observationsQuantities}" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/image_recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    app:layout_constraintBottom_toTopOf="@+id/bottom_guideline_start"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/checklist_table_layout"
+                    app:layout_constraintVertical_bias="0.40"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/list_item_image" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_recyclerView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onSubmitClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/submit"
+            app:iconGravity="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.save()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/save"
+            app:goneUnless="@{viewModel.itemType != ItemType.REMOTE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/next_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/previou_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previou_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onPreviousClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/back"
+            app:iconGravity="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading_state_white"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resource="@{(Resource) viewModel.checklistSaveStatus}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

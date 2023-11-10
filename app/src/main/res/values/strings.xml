@@ -1,0 +1,325 @@
+<resources>
+    <string name="app_name">Painelb</string>
+
+    <!--Error-->
+    <string name="error_message_internet_connection">No internet connect</string>
+    <string name="error_message_network">Network error</string>
+    <string name="error_message_unknown">Unknown error</string>
+    <string name="error_message_name">Wrong name</string>
+    <string name="error_message_password">Incorrect password</string>
+    <string name="error_message_email">Incorrect email</string>
+    <string name="error_message_disability_type">Wrong handicap type</string>
+    <string name="error_message_gender">Wrong gender</string>
+    <string name="error_no_item_preview">No item preview</string>
+    <string name="dont_show">Don\'t show</string>
+    <string name="error_share_provider">Did\'t found any share provider</string>
+    <string name="exo_download_removing_fail">Removing downloads fail</string>
+    <string name="exo_download_action_take">Your download request is complete or pending</string>
+    <string name="error_invalid_file">Invalid file</string>
+    <string name="maximum_file_size_limit">Can\'t upload file Maximum file size limit is 500 kilobyte</string>
+    <!--progress-->
+    <string name="please_wait">Please wait</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="ok">OK</string>
+
+    <!--    Login fragment-->
+    <string name="title_fragment_login">Login</string>
+    <string name="email">Email</string>
+    <string name="enter_password">Password</string>
+    <string name="login">Login</string>
+    <string name="send">Send</string>
+    <string name="forget_password">Forgot your password?</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="registration">Registration</string>
+
+    <!--Registration fragment-->
+    <string name="title_fragment_registration">Registration</string>
+
+    <string name="full_name">Full name</string>
+    <string name="retype_password">Confirm password</string>
+    <string name="invalid_confirm_password">Invalid confirm password</string>
+    <string name="minimum_six_characters_password">Minimum 6 characters of password have to give</string>
+    <string name="leading_trailing_passwords">Leading and trailing spaces are not allowed in passwords.</string>
+
+    <string name="cpf">Cpf</string>
+    <string name="invalid_cpf">Invalid cpf</string>
+    <string name="fixed_team">Fixed team</string>
+    <string name="invalid_fixed_team">Invalid fixed team</string>
+    <string name="variable_team">Variable team</string>
+    <string name="invalid_variable_team">Invalid variable team</string>
+    <string name="sector">Sector</string>
+    <string name="invalid_sector">Invalid Sector</string>
+
+
+    <!--    ForgetPasswordFragment-->
+    <string name="title_fragment_forget_password">Forget password</string>
+    <string name="title_fragment_forget_password_hint">You forget your password? Here you can easily retrieve a new password.</string>
+    <string name="request_new_password">Request new password</string>
+    <string name="logout">Logout</string>
+    <string name="are_you_want_to_logout">Do you want to logout?</string>
+
+    <!--    Home -->
+    <string name="title_fragment_home" />
+    <string name="welcome_to_occurrence_panel">Welcome to Occurrence panel</string>
+    <string name="check_list_pending">Checklist pending</string>
+
+    <!--    Occurrences-->
+    <string name="title_fragment_occurrences">Occurrences</string>
+    <string name="subtitle_fragment_occurrences">Occurrence list</string>
+    <string name="title_fragment_update_occurrences">Update occurrences</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+
+
+    <!--    Check list (VTR)-->
+    <string name="title_fragment_check_list">Check list (VTR)</string>
+    <string name="title_fragment_update_check_list">Update check list (VTR)</string>
+    <string name="occurrences_pending">Occurrences pending</string>
+    <string name="check_list">Check list</string>
+
+    <string name="prisma_format">Prisma :  %1$s</string>
+    <string name="conductor_format">Driver :  %1$s</string>
+    <string name="only_date_format">Date :  %1$s</string>
+
+
+    <string name="title_fragment_create_check_list">Create check list</string>
+
+    <!--    VehicleFragment-->
+    <string name="vtr">VTR</string>
+    <string name="date">Date</string>
+    <string name="team_service">Team service</string>
+    <string name="conductor">Conductor</string>
+    <string name="plate">Plate</string>
+    <string name="prisma">Prisma</string>
+    <string name="departure_time">Departure time</string>
+    <string name="return_time">Return time</string>
+    <string name="km_departure">Km departure</string>
+    <string name="km_return">Km return</string>
+    <string name="output_fuel_quantity">Output fuel quantity</string>
+    <string name="return_fuel_quantity">Return fuel quantity</string>
+
+    <string name="enter_vtr">Enter VTR</string>
+    <string name="enter_date">Enter date</string>
+    <string name="enter_team_service">Enter team service</string>
+    <string name="enter_conductor">Enter conductor</string>
+    <string name="enter_plate">Enter plate</string>
+    <string name="enter_prisma">Enter prisma</string>
+    <string name="enter_departure_time">Enter departure time</string>
+    <string name="enter_return_time">Enter return time</string>
+    <string name="enter_km_departure">Enter km departure</string>
+    <string name="enter_km_return">Enter km return</string>
+    <string name="enter_output_fuel_quantity">Enter output fuel quantity</string>
+    <string name="enter_return_fuel_quantity">Enter return fuel quantity</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="submit">Submit</string>
+
+    <!--    CheckListFragment-->
+    <string name="carpet">Carpet</string>
+    <string name="tire_iron">Tire iron</string>
+    <string name="triangue">Triangue</string>
+    <string name="monkey">Monkey</string>
+    <string name="front_lighting_system">Front lighting system</string>
+    <string name="rear_lighting_system">Rear lighting system</string>
+    <string name="sirene">Sirene</string>
+    <string name="flashing">Flashing</string>
+    <string name="supply_card">Supply card</string>
+    <string name="crlv">CRLV</string>
+    <string name="glacier">Glacier</string>
+    <string name="etilometer">Etilometer</string>
+    <string name="pneus">Pneus</string>
+    <string name="stereo">Stereo</string>
+    <string name="cones">Cones</string>
+    <string name="enter_quantities">Enter quantities</string>
+    <string name="enter_observations">Enter Observations</string>
+
+    <string name="super_cones">Super cones</string>
+    <string name="new_jersey">New jersey</string>
+    <string name="handle">Handle</string>
+    <string name="observations">Observations</string>
+    <string name="delete_checkList">Do you want to Delete CheckList?</string>
+
+    <!--    ImageFragment-->
+    <string name="add_images">Add image</string>
+    <string name="maximum_profile_image_size_limit">File should be less than 1 MB of size.</string>
+    <string name="please_choose_image">Please choose image</string>
+
+    <!--    PreviewFragment-->
+    <string name="vehicle_preview">Vehicle/conductor</string>
+    <string name="check_list_preview">Checklist</string>
+    <string name="image_preview">Image</string>
+
+    <!--    FragmentCreateOccurrencesBinding-->
+    <string name="title_fragment_create_occurrences">Create occurrences</string>
+    <string name="occurrences">Occurrence</string>
+
+
+    <!--OccurrenceInformationFragment-->
+    <string name="type_of_occurrence">Type of occurrence</string>
+    <string name="enter_type_of_occurrence">Enter type of occurrence</string>
+    <string name="address">Address</string>
+    <string name="enter_address">Enter address</string>
+    <string name="perimeter">Perimeter</string>
+    <string name="enter_perimeter">Enter perimeter</string>
+    <string name="time">Time</string>
+    <string name="enter_time">Enter time</string>
+    <string name="descriptions">Descriptions</string>
+    <string name="enter_descriptions">Enter descriptions</string>
+    <string name="delete_occurence">Do you want to Delete Occurrence?</string>
+    <string name="delete_victim">Do you want to Delete Victim?</string>
+    <string name="delete_witness">Do you want to Delete Witness?</string>
+    <string name="delete_vehicle">Do you want to Delete Vehicle?</string>
+
+
+    <string name="type_occurrences_format">Type occurrences : %1$s</string>
+    <string name="address_format">Address :  %1$s</string>
+    <string name="perimeter_format">Perimeter :  %1$s</string>
+    <string name="descriptions_format">Descriptions :  %1$s</string>
+    <string name="date_time_format">Date : %1$s %2$s</string>
+
+    <!--    VehicleConductorFragment-->
+    <string name="add_vehicle_conductor">Add vehicle conductor</string>
+    <string name="vehicle_conductor">Vehicle/Conductor</string>
+
+    <!-- AddVehicleConductorFragment-->
+    <string name="title_fragment_add_vehicle_conductor">Add vehicle</string>
+    <string name="vehicle_information">Vehicle information</string>
+    <string name="vehicle_plate">Vehicle plate</string>
+    <string name="enter_vehicle_plate">Enter vehicle plate</string>
+    <string name="vehicle_document_type">Vehicle document type</string>
+    <string name="enter_vehicle_document_type">Enter vehicle document type</string>
+    <string name="vehicle_document_number">Vehicle document number</string>
+    <string name="enter_vehicle_document_number">Enter vehicle document number</string>
+    <string name="vehicle_type">Vehicle type</string>
+    <string name="enter_vehicle_type">Enter vehicle type</string>
+    <string name="damage_category">Damage category</string>
+    <string name="enter_damage_category">Enter damage category</string>
+    <string name="vehicle_procedure">Vehicle procedure</string>
+    <string name="enter_vehicle_procedure">Enter vehicle procedure</string>
+    <string name="conductor_information">Conductor information</string>
+    <string name="driver_name">Driver name</string>
+    <string name="enter_driver_name">Driver name</string>
+    <string name="driver_document_type">Driver document type</string>
+    <string name="enter_driver_document_type">Enter driver document type</string>
+    <string name="driver_document_number">Driver document number</string>
+    <string name="enter_driver_document_number">Enter driver document number</string>
+    <string name="driver_procedure">Driver procedure</string>
+    <string name="enter_driver_procedure">Enter driver procedure</string>
+
+
+    <!--    VictimFragment-->
+    <string name="are_there_victims"> Are there victims ?</string>
+    <string name="add_victim">Add victim</string>
+    <string name="victim">Victim</string>
+    <string name="victim_remove_message">Victim data still exists. Please delete it first!</string>
+
+    <!--    AddVictimFragment-->
+    <string name="title_fragment_add_victim">Add victim</string>
+    <string name="victim_information_title">Victim Information</string>
+    <string name="victim_name">Victim name</string>
+    <string name="enter_victim_name">Enter victim name</string>
+    <string name="victim_status">Victim status</string>
+    <string name="enter_victim_status">Enter victim status</string>
+    <string name="genre">Genre</string>
+    <string name="enter_genre">Enter genre</string>
+
+    <string name="victim_document_type">Victim document type</string>
+    <string name="enter_victim_document_type">Enter victim document type</string>
+    <string name="enter_victim_document_number">Enter victim document number</string>
+    <string name="enter_victim_birth_date">Enter victim birth date</string>
+    <string name="victim_birth_date">Victim BirthDate</string>
+    <string name="victim_document_number">Victim document number</string>
+    <string name="victim_address">Victim address</string>
+    <string name="enter_victim_address">Enter victim address</string>
+
+    <!--    WitnessFragment-->
+    <string name="are_there_any_witnesses">Are there any witnesses?</string>
+    <string name="add_witness">Add witness</string>
+    <string name="witness">Witness</string>
+
+    <!--    AddWitnessFragment-->
+    <string name="title_fragment_add_witness">Add Witness</string>
+    <string name="witness_information_title">Witness Information</string>
+    <string name="witness_name">Witness name</string>
+    <string name="enter_witness_name">Witness name</string>
+    <string name="witness_document_type">Witness document type</string>
+    <string name="enter_witness_document_type">Enter Witness document type</string>
+    <string name="witness_document_number">Witness document number</string>
+    <string name="enter_witness_document_number">Enter witness document number</string>
+    <string name="witness_address">Witness address</string>
+    <string name="enter_witness_address">Enter witness address</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sharedto">Share as :</string>
+    <string name="via_text">Text</string>
+    <string name="via_pdf">PDF</string>
+    <string name="via_image">Image</string>
+    <string name="update_your_app">Please, update your app.</string>
+    <string name="vehicle_conductor_information">Vehicle/driver data</string>
+    <string name="victim_data">Victim data</string>
+    <string name="double_line">=================================\n</string>
+    <string name="update_available">Update available</string>
+
+
+
+<!--    HTML Headings -->
+
+    <string name="occurrence_traffic_accident">Occurrence/traffic accident:</string>
+    <string name="date_time_heading">Date/time:</string>
+    <string name="local_heading">Local:</string>
+    <string name="report_heading">Report:</string>
+    <string name="driver_vehicle_data_heading">Vehicle/driver data:</string>
+    <string name="board_heading">Plate:</string>
+    <string name="vehicle_heading">Vehicle document:</string>
+    <string name="document_number_heading">Document number:</string>
+    <string name="damage_category_heading">Damage Category:</string>
+    <string name="conductor_heading">Conductor:</string>
+    <string name="driver_document_heading">Driver document:</string>
+    <string name="procedure_heading">Procedure:</string>
+    <string name="victim_data_heading">Victim data</string>
+    <string name="name_heading">Name:</string>
+    <string name="health_condition_heading">Health condition:</string>
+    <string name="gender_heading">Gender:</string>
+    <string name="victim_document_heading">Victim\'s document:</string>
+    <string name="address_heading">Address:</string>
+    <string name="date_of_birth_heading">Date of birth:</string>
+    <string name="images_heading">Images:</string>
+    <string name="vehicle_conductor_heading">Vehicle/Conductor</string>
+    <string name="team_service_heading">Team Service:</string>
+    <string name="prisma_heading">Prisma:</string>
+    <string name="departure_time_heading">Departure Time:</string>
+    <string name="return_time_heading">Return Time:</string>
+    <string name="km_departure_heading">Km departure:</string>
+    <string name="return_km_heading">Km return:</string>
+    <string name="output_fuel_quant_heading">Output Fuel Quantity:</string>
+    <string name="return_fuel_quant_heading">Return Fuel Quantity:</string>
+
+    <string name="check_list_heading">CheckList:</string>
+    <string name="carpet_heading">Carpet:</string>
+    <string name="triangue_heading">Triangue:</string>
+    <string name="front_lightning_system_heading">Front Lighting System:</string>
+    <string name="sirine_heading">Sirene:</string>
+    <string name="supply_card_heading">Supply Card:</string>
+    <string name="glacier_heading">Glacier:</string>
+    <string name="tires_heading">Tires:</string>
+    <string name="cones_heading">Cones:</string>
+    <string name="super_cones_heading">Super Cones:</string>
+
+
+    <string name="new_jersy_heading">New Jersey:</string>
+    <string name="hanlde_heading">Hanlde:</string>
+    <string name="take_iron_heading">Take Iron:</string>
+    <string name="monkey_heading">Monkey:</string>
+    <string name="rear_lighting_heading">Rear lighting system:</string>
+    <string name="flashing_heading">Flashing:</string>
+    <string name="crlv_heading">CRLV:</string>
+    <string name="etiliometer_heading">Etilometer:</string>
+    <string name="stereo_heading">Stereo:</string>
+    <string name="title_checklist">Checklist data</string>
+    <string name="share_via">Share via:</string>
+    <string name="image_folder">Painelb/img</string>
+
+
+</resources>

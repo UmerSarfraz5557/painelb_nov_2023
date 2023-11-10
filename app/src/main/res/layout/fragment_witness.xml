@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.occurrences.create.CreateOccurrenceViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/are_there_any_witnesses_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={viewModel.hasWitness}"
+            android:text="@string/are_there_any_witnesses"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline_start" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_button"
+            style="@style/ButtonOutline2"
+            goneUnless="@{viewModel.hasWitness}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:onClick="@{() -> viewModel.navigateToAddWitness()}"
+            android:paddingTop="@dimen/spacing_tiny"
+            android:paddingBottom="@dimen/spacing_tiny"
+            android:layout_marginStart="@dimen/spacing_large_huge"
+            android:layout_marginEnd="@dimen/spacing_large_huge"
+            android:text="@string/add_witness"
+            android:backgroundTint="@color/green_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/are_there_any_witnesses_check_box" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/witness_recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:bind_witness="@{viewModel.witness}"
+            app:delete_enable="@{true}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/previous_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_button"
+            app:view_model="@{viewModel}"
+            tools:listitem="@layout/list_item_witness" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onNextClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/next"
+            app:iconGravity="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previous_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.onPreviousClick()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/back"
+            app:iconGravity="start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="br.com.painelb.model.checklist.Checklist" />
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.checklist.fragment.pending.CheckListPendingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/prisma_text_view"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/prisma_format, item.prisma)}"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline_start"
+            tools:text="Type" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/conductor_text_view"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="@{String.format(@string/conductor_format, item.conductor)}"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/prisma_text_view"
+            tools:text="Conductor" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date_text_view"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="@{String.format(@string/only_date_format, item.checkDate)}"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/conductor_text_view"
+            tools:text="11/12/2021 14:10" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delete_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:onClick="@{() -> viewModel.delete(item)}"
+            android:text="@string/delete"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_guideline_start"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/date_text_view"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/update_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:onClick="@{() -> viewModel.update(item)}"
+            android:text="@string/update"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_guideline_start"
+            app:layout_constraintEnd_toStartOf="@+id/delete_button"
+            app:layout_constraintTop_toTopOf="@+id/delete_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

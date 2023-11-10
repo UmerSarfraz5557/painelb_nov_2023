@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.painelb.ui.main.fragments.occurrences.create.CreateOccurrenceViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/next_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.main.fragments.checklist.create.fragment.VehicleFragment">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/activity_vertical_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/activity_horizontal_margin" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/type_of_occurrence_text_input_layout"
+                    style="@style/TextInputLayoutSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/type_of_occurrence"
+                    app:error="@{viewModel.errorTypeOfOccurrence}"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/top_guideline_start">
+
+                    <br.com.painelb.widgets.TextInputMaterialAutoCompleteTextView
+                        android:id="@+id/type_of_occurrence_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:onItemClick="@{(p, v, pos, id) -> viewModel.typeOfOccurrenceItemSelected(p.getItemAtPosition(pos))}"
+                        app:backgroundTint="@android:color/white"
+                        app:bind_adapter="@{viewModel.occurrenceTypeData}"
+                        app:bind_item="@{viewModel.typeOfOccurrence}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/address_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny_small"
+                    android:hint="@string/address"
+                    app:error="@{viewModel.errorAddress}"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/type_of_occurrence_text_input_layout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences|text"
+                        android:text="@={viewModel.address}"
+                        app:backgroundTint="@android:color/white"
+                        app:textAllCaps="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/perimeter_text_input_layout"
+                    style="@style/TextInputLayoutSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny_small"
+                    android:hint="@string/perimeter"
+                    app:error="@{viewModel.errorPerimeter}"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/address_text_input_layout">
+
+                    <br.com.painelb.widgets.TextInputMaterialAutoCompleteTextView
+                        android:id="@+id/perimeter_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:onItemClick="@{(p, v, pos, id) -> viewModel.perimeterItemSelected(p.getItemAtPosition(pos))}"
+                        app:backgroundTint="@android:color/white"
+                        app:bind_adapter="@{@stringArray/perimeter}"
+                        app:bind_item="@{viewModel.perimeter}"	/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/date_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny_small"
+                    android:hint="@string/date"
+                    app:error="@{viewModel.errorDate}"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/perimeter_text_input_layout">
+
+                    <br.com.painelb.widgets.DatePickerTextInputEditText
+                        android:id="@+id/date_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_experience_calender_24dp"
+                        android:inputType="text"
+                        android:text="@={viewModel.date}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/time_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny_small"
+                    android:hint="@string/time"
+                    app:error="@{viewModel.errorTime}"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/date_text_input_layout">
+
+                    <br.com.painelb.widgets.TimePickerTextInputEditText
+                        android:id="@+id/departure_time_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_access_time_black_24dp"
+                        android:inputType="text"
+                        android:text="@={viewModel.time}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/descriptions_text_input_layout"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny_small"
+                    android:gravity="top|start"
+                    android:hint="@string/descriptions"
+                    app:error="@{viewModel.errorDescriptions}"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline_start"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/time_text_input_layout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/descriptions_edit_text"
+                        style="@style/TextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:minLines="1"
+                        android:text="@={viewModel.descriptions}"
+                        app:backgroundTint="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptions_text_input_layout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            style="@style/ButtonOutline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:nextFocusUp="@id/password_text_input_layout"
+            android:nextFocusDown="@id/forget_password_button"
+            android:onClick="@{() -> viewModel.validateOccurrenceInformationData()}"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/spacing_normal"
+            android:paddingBottom="0dp"
+            android:text="@string/next"
+            app:iconGravity="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
