@@ -4,7 +4,7 @@ buildscript {
         kotlinVersion = '1.3.72'
         navSaveArgsVersion = '2.3.0-alpha02'
         minSdk = 22
-        compileSdk = 29
+        compileSdk = 32
         navigationVersion = '2.3.0-alpha02'
 
         //Ui

@@ -77,6 +77,6 @@ class ApiModule {
 
     companion object {
        val API_URL: HttpUrl = "https://api.sistran.app.br/api/".toHttpUrl()
-        //val API_URL: HttpUrl = ("" + "https://1237-119-160-98-35.ngrok.io/api/").toHttpUrl()
+       // val API_URL: HttpUrl = ("https://c053-223-123-1-187.ngrok.io/api/").toHttpUrl()
     }
 }
